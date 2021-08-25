@@ -1,4 +1,4 @@
 alert('Hello world');
 
-let favoriteFood = 'Spaghetti🍝';
+const favoriteFood = 'Spaghetti🍝';
 document.write(favoriteFood);
