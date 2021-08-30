@@ -1,3 +1,5 @@
+//Wrapped pokemonList in pokemonRepository (IIFE)
+const pokemonRepository = (function(){
 //Pokemon Character List
 const pokemonList = [
     {
@@ -27,10 +29,26 @@ const pokemonList = [
     }
 ];
 
+//Add a single pokemon to the pokemonList Array
+function add(pokemon) {
+    pokemonList.push(pokemon);
+}
+
+//Return all pokemon from pokemonList Array
+function getAll() {
+    return pokemonList;
+}
+
+return {
+    getAll: getAll,
+    add: add
+}
+})();
+
+//getAll Function pushes data from pokemonRepository onto the DOM
 //forEach Loop populates name and height of pokemonList Array
 //Conditional calls out the character whose height is > 1.5
-
-pokemonList.forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon) {
     const pokemonIsTall = pokemon.height > 1.5;
     if (pokemonIsTall) {
         document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' - Wow that is big! </p>'  ); 
