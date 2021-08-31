@@ -29,30 +29,45 @@ const pokemonList = [
     }
 ];
 
-//Add a single pokemon to the pokemonList Array
+//Adds a single pokemon to the pokemonList Array
 function add(pokemon) {
     pokemonList.push(pokemon);
 }
 
-//Return all pokemon from pokemonList Array
+//Returns all pokemon from pokemonList Array
 function getAll() {
     return pokemonList;
 }
 
+//Shows details of selected pokemon
+function showDetails(pokemon){
+    console.log(pokemon);
+}
+
+//Formats the pokemon ul into buttons
+function addListItem(pokemon){
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listpokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+    button.addEventListener('Click', function(){
+        showDetails(pokemon);
+    });
+}
+
 return {
     getAll: getAll,
-    add: add
-}
+    add: add,
+    addListItem: addListItem
+    };
 })();
 
-//getAll Function pushes data from pokemonRepository onto the DOM
-//forEach Loop populates name and height of pokemonList Array
-//Conditional calls out the character whose height is > 1.5
 pokemonRepository.getAll().forEach(function(pokemon) {
-    const pokemonIsTall = pokemon.height > 1.5;
-    if (pokemonIsTall) {
-        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ')' + ' - Wow that is big! </p>'  ); 
-    } else {
-        document.write('<p>' + pokemon.name + ' (height: ' + pokemon.height + ') </p>' );
-    }
+    pokemonRepository.addListItem(pokemon);
 });
+
+
+
