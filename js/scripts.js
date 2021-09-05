@@ -82,12 +82,12 @@ const pokemonRepository = (function() {
     let modalContainer = document.querySelector('#modal-container');
     //Shows Modal
     function showModal(pokemon) {
-        let modalContainer = document.querySelector('#modal-continer');
+        let modalContainer = document.querySelector('#modal-container');
         //Clears existing Modal content
         modalContainer.innerHTML = '';
 
         let modal = document.createElement('div');
-        modal.classlist.add('modal');
+        modal.classList.add('modal');
 
         //Adds new Modal content
         let closeButtonElement = document.createElement('button');
@@ -103,12 +103,15 @@ const pokemonRepository = (function() {
         //Creates element that will display <p> text pokemon details upon button click
         let contentElement = document.createElement('p');
         let pokeHeight = pokemon.height;
-        let pokeTypes = [];
-        Object.keys(pokemon.type).forEach(key => {
-            pokeTypes.push(pokemon.type[key].type.name);
-        });
+        let pokeTypes = pokemon.types
+            .map(function(item) {
+                return item.type.name;
+            })
+            .join(", ")
+
+
         //Establishes the <p> text specfics that will be displayed on button click
-        contentElement.innerText = 'Height:' + pokeHeight + 'Types:' + pokeTypes;
+        contentElement.innerText = 'Height: ' + pokeHeight + 'm ' + '\r\n' + 'Types: ' + pokeTypes;
 
         //Adds image element to populate from the API
         let imageElement = document.createElement('img');
