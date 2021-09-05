@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simple JS App</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+
 <body>
     <header>
         <img src="img/pokemon-logo.png" alt="logo" id="logo" class="page-header__item">
-    </header>  
+    </header>
     <ul class='pokemon-list'></ul>
-    <script src="js/scripts.js"></script> 
+    <div id='modal-container'>
+        <div class='modal'>
+        </div>
+    </div>
+    <script src="js/promise-polyfill.js"></script>
+    <script src="js/fetch-polyfill.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>
