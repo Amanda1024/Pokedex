@@ -43,7 +43,7 @@ ul {
 
 /* Button */
 
-.button-class {
+.btn-lg {
     background-color: var(--pokegreen);
     /* Green */
     border: none;
