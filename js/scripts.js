@@ -88,7 +88,7 @@ const pokemonRepository = (function() {
     //Shows Modal
     function showModal(pokemon) {
         let modalBody = $('.modal-body');
-        let modalTitle = $('modal-title');
+        let modalTitle = $('.modal-title');
 
         modalTitle.empty();
         modalBody.empty();
@@ -102,9 +102,9 @@ const pokemonRepository = (function() {
         let imageElementBack = $('<img class="modal-img" style="width:50%">');
         imageElementBack.attr('src', pokemon.imageUrlBack);
         // Displays height information
-        let heightElement = $('<p>' + 'height : ' + pokemon.height + '</p>');
+        let heightElement = $('<p>' + 'Height : ' + pokemon.height + '</p>');
         // Displays type information
-        let typesElement = $('<p>' + 'types : ' + pokemon.types + '</p>');
+        let typesElement = $('<p>' + 'Types : ' + pokemon.types.map(pokemon => pokemon.type.name).join(', ') + '</p>');
 
         modalTitle.append(nameElement);
         modalBody.append(imageElement);
