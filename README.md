@@ -5,7 +5,7 @@ Dependancies:
 - Bootsrap   
 - PokeAPI 
 
-This project displays a list of Pokèmon in the form of buttons. 
+This project displays a list of Pokèmon in the form of buttons, as well as a search function. 
 
 When you click a button, a modal will show: 
 
