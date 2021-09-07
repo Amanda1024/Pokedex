@@ -1,4 +1,4 @@
-//Wrapped pokemonList in pokemonRepository (IIFE)
+//Wrapped pokemonList in pokemonRepository (I.I.F.E.)
 const pokemonRepository = (function() {
     //Pokemon Character List
     const pokemonList = [];
